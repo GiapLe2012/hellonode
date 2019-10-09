@@ -28,7 +28,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker login localhost:5000 -u amdin1 -p P@ssw0rd123456 {
+        docker.withRegistry('https://hub.docker.com', 'giaple') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
